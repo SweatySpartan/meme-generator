@@ -1,0 +1,62 @@
+const hairOptions = [
+    'images/hat1.png', 
+    'images/hat2.png', 
+    'images/hat4.png', 
+    'images/hat5.png', 
+    'images/hat6.png', 
+    'images/hat7.png', 
+    'images/hat8.png', 
+    'images/hat9.png', 
+    'images/hat10.png', 
+    'images/hat11.png'
+];
+
+const eyesOptions = [
+    'images/3d.png',
+    'images/Heart Glasses.png',
+    'images/MIB glasses.png',
+    'images/party glasses.png',
+    'images/Viper 1.png',
+    'images/vypr2.png',
+    'images/wif - Copy.png'
+];
+
+const frontOptions = [
+    'images/front1.png',
+    'images/front2.png',
+    'images/front3.png',
+    'images/front4.png',
+    'images/front5.png',
+    'images/front6.png',
+    'images/front7.png',
+    'images/front8.png',
+    'images/front9.png',
+    'images/front10.png'
+];
+
+document.getElementById('hairSelector').addEventListener('change', function() {
+    document.getElementById('hair').src = this.value;
+});
+
+document.getElementById('eyesSelector').addEventListener('change', function() {
+    document.getElementById('eyes').src = this.value;
+});
+
+document.getElementById('frontSelector').addEventListener('change', function() {
+    document.getElementById('front').src = this.value;
+});
+
+// Populate selectors
+function populateSelector(selectorId, options) {
+    const selector = document.getElementById(selectorId);
+    options.forEach(option => {
+        const opt = document.createElement('option');
+        opt.value = option;
+        opt.innerText = option.split('/').pop().replace('.png', '').replace('hat', 'Style ').replace('front', 'Style ');
+        selector.appendChild(opt);
+    });
+}
+
+populateSelector('hairSelector', hairOptions);
+populateSelector('eyesSelector', eyesOptions);
+populateSelector('frontSelector', frontOptions);
